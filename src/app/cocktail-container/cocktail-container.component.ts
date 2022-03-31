@@ -2,32 +2,38 @@ import { Component, OnInit } from '@angular/core';
 import { Cocktail } from '../interfaces/cocktail.interface';
 
 @Component({
-  selector: 'app-cocktail-list',
-  templateUrl: './cocktail-list.component.html',
-  styleUrls: ['./cocktail-list.component.scss']
+  selector: 'app-cocktail-container',
+  templateUrl: './cocktail-container.component.html',
+  styleUrls: ['./cocktail-container.component.scss']
 })
-export class CocktailListComponent implements OnInit {
-  cocktails: Cocktail[] = [
+export class CocktailContainerComponent implements OnInit {
+  public cocktails: Cocktail[] = [
     {
       name: 'Mojito',
-      img: 'https://www.thecocktaildb.com/images/media/drink/vqwstt1487603116.jpg',
+      img: 'https://static.750g.com/images/600-600/b520523117d647dab6b842a36f4cc7f5/mojito-le-vrai.jpg',
       description: 'Mojito is a cocktail made with white rum, lime juice, sugar, and soda water. The name comes from moseito, which means to sleep. The drink is traditionally served neat in Collins glasses that are highballed.'
     },
     {
       name: 'Margarita',
-      img: 'https://www.thecocktaildb.com/images/media/drink/vqwstt1487603116.jpg',
+      img: 'https://media.istockphoto.com/photos/cocktail-classic-margarita-with-lime-and-salt-picture-id817352270?k=20&m=817352270&s=612x612&w=0&h=YRk5ek6rmueV_30rSUjptR-TpFHBO8P16o3VFf1TsZw=',
       description: 'Margarita is a cocktail made with tequila, triple sec, and lime juice. The name of the drink comes from the combination of margarita and tequila, since when is a margarita what is tequila?'
     },
     {
       name: 'Daiquiri',
-      img: 'https://www.thecocktaildb.com/images/media/drink/vqwstt1487603116.jpg',
+      img: 'https://c8.alamy.com/compfr/cy6d5k/frozen-strawberry-daiquiri-cocktail-d-alcool-isole-sur-fond-blanc-cy6d5k.jpg',
       description: 'Daiquiri is a cocktail made with white rum, lime juice, and soda water. The name comes from the Spanish word d\'aqua, which means \'water\'.'
     }
   ];
 
+  public selectedCocktail: Cocktail;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.selectedCocktail = this.cocktails[0];
   }
 
+  public selectCocktail(index: number): void {
+    this.selectedCocktail = this.cocktails[index];
+  }
 }

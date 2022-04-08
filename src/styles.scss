@@ -163,6 +163,10 @@ body {
   font-weight: 500;
 }
 
+.active {
+  background-color: var(--secondary);
+}
+
 // debug
 
 .d {

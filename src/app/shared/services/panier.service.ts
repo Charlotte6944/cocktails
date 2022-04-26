@@ -2,16 +2,15 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Ingredient } from '../interfaces/ingredient.interface';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class PanierService {
-  public ingredients$: BehaviorSubject<Ingredient[] | null> = new BehaviorSubject<Ingredient[] | null>(
-    null);
+  public ingredients$: BehaviorSubject<
+    Ingredient[] | null
+  > = new BehaviorSubject<Ingredient[] | null>(null);
 
-  constructor() { }
+  constructor() {}
 
-  addToPanier(ingredients: Ingredient[]): void {
+  addPanier(ingredients: Ingredient[]): void {
     const currentValue = this.ingredients$.value;
     if (currentValue) {
       const obj = [...currentValue, ...ingredients].reduce(
